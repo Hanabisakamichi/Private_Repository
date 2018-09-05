@@ -20,3 +20,10 @@ C++：
 
 
 常用的linux操作
+
+
+https://www.nowcoder.com/search?type=post&order=time&query=%E5%AE%9C%E4%BF%A1&page=2
+https://blog.csdn.net/a2011480169/article/details/74370184
+https://www.cnblogs.com/stubborn412/p/4033651.html
+https://blog.csdn.net/u010358168/article/details/78785093
+https://blog.csdn.net/sinat_29214327/article/details/80686992
