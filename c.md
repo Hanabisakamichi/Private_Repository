@@ -2,6 +2,8 @@
 
 
 tcp 三次握手
+http://www.52im.net/thread-513-1-1.html
+http://www.52im.net/thread-515-1-1.html
 
 数组和链表区别
 数组的优点：随机访问性强，查找速度快
