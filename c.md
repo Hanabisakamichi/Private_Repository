@@ -42,3 +42,34 @@ https://blog.csdn.net/a2011480169/article/details/74370184
 https://www.cnblogs.com/stubborn412/p/4033651.html
 https://blog.csdn.net/u010358168/article/details/78785093
 https://blog.csdn.net/sinat_29214327/article/details/80686992
+
+
+1.4 friend
+两张图：
+h1，h2 起muses  测h1
+h1 python run_sender
+h2 python run_receiver
+veth2，h3 起muses 测veth2
+h1，h2用完都要kill
+两个测量数据作图  用1.1的tput_draw  不用delay
+
+h1，h2 起cubic 测h1
+h1 python sender
+h2 python receiver
+veth2，h3 起muses 测veth2
+h1，h2用完都要kill
+两个测量数据作图  用1.1的tput_draw  不用delay
+
+总时间？
+
+1.5 背景流
+一张图
+h1,h2 起traffic genertor 测h1端口
+bandwidth－h1端口数据 ＝ optimal
+veth2 测量八种算法
+veth2测量数据与optimal作图，用1.1的tput_draw  不用delay
+
+
+
+
+
