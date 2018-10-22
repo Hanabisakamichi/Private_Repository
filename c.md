@@ -73,3 +73,25 @@ veth2测量数据与optimal作图，用1.1的tput_draw  不用delay
 
 
 https://fantiga.com/20170816-%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%97%A5%E6%9C%AC%E8%A7%82%E5%85%89%E4%B9%8B%E6%97%85-1-%E2%80%94%E2%80%94%E5%B0%8F%E6%A8%BD%E9%9B%AA%E5%9B%BD%E7%AB%A5%E8%AF%9D-42P.html
+
+
+
+github fork一个分之后，过一段时间就会和主分支的差异比较大。 这样提交pr的时候就会冲突，这个时候我们就需要和主分支同步代码。
+
+步骤：
+0. 在本地git仓库目录下
+
+1. git remote add upstream git@github.com:coreos/etcd.git   //本地添加远程主分支，叫upstream。可以先git branch -v查看是否已添加远程分支，若已添加，该步骤略过。
+
+2. git fetch upstream  // 获取主分支的最新修改到本地；
+
+3. 将upstream分支修改内容merge到本地个人分支，该步骤分成2步：
+
+    1） # git checkout 分支名；  // checkout到某分支
+
+    2） # git merge upstream/分支名；  //合并主分支修改到本地分支；
+
+4. git push                                // 将本地修改提交到github上的个人分支
+
+至此，主分支修改的代码完全同步到fork出来的个人分支上，后续在个人分支上修改提交pr时就不会冲突。
+
