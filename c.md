@@ -99,3 +99,100 @@ github fork一个分之后，过一段时间就会和主分支的差异比较大
 指数基金
 
 dog250
+
+https://fantiga.com/categories/%E8%A1%8C%E8%A1%8C%E6%91%84%E6%91%84/
+https://pantheon.stanford.edu/measurements/cloud/
+https://github.com/StanfordSNR/pantheon 
+https://www.jiqizhixin.com/articles/2018-08-28-5  多巴胺
+
+https://www.zhihu.com/topic/20070859/top-answers    GAN
+http://baijiahao.baidu.com/s?id=1602795888204860650&wfr=spider&for=pc k8s
+https://www.zhihu.com/question/35067324 招聘
+https://zhuanlan.zhihu.com/p/25298020  DRL
+https://zhuanlan.zhihu.com/p/25319023  DRL
+https://zhuanlan.zhihu.com/p/25328686  ML
+https://zhuanlan.zhihu.com/p/27967531  ML
+https://zhuanlan.zhihu.com/chuchu      AI
+https://blog.csdn.net/wuzlun/article/details/80053277  Matplotlib
+http://www.52im.net/thread-513-1-1.html  tcp
+https://baijiahao.baidu.com/s?id=1595183355817322735&wfr=spider&for=pc numpy matplotlib pandas
+https://www.cnblogs.com/dev-liu/p/pandas_plt_basic.html pandas matplotlib
+https://www.cnblogs.com/zzhzhao/p/5269217.html py
+
+
+
+
+
+
+
+http://code.huawei.com/y84107158/AI-CC/blob/master/Indigo_Training/dagger/worker.py
+http://office.huawei.com/sites/2012-csrussell/protocol/SitePages/WelcomePage.aspx?FollowSite=1&SiteName=%E5%8D%8F%E8%AE%AE%E5%AE%9E%E9%AA%8C%E5%AE%A4
+
+lstm
+https://blog.csdn.net/Prodigy_An/article/details/52832105
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+http://deeplearning.net/tutorial/lstm.html
+
+rl
+https://blog.csdn.net/jinzhuojun/article/details/80417179
+https://blog.csdn.net/jinzhuojun/article/details/78007628
+https://github.com/openai/baselines/blob/master/baselines/ppo2/run_atari.py
+https://blog.csdn.net/weixin_38195506/article/details/75550438
+
+rnn
+https://blog.csdn.net/UESTC_C2_403/article/details/73353145
+https://blog.csdn.net/sydpz1987/article/details/51340277
+https://www.leiphone.com/news/201709/QJAIUzp0LAgkF45J.html
+https://zhuanlan.zhihu.com/p/28054589
+http://wiki.jikexueyuan.com/project/tensorflow-zh/tutorials/recurrent.html
+
+tcp
+https://blog.csdn.net/xiaoshengqdlg/article/details/23349591
+https://blog.csdn.net/u010643777/article/details/78702577
+https://blog.csdn.net/ebay/article/details/76252481
+https://blog.csdn.net/dog250/article/details/52830576
+https://blog.csdn.net/jtracydy/article/details/52366461
+https://www.cnblogs.com/fll/archive/2008/06/10/1217013.html
+http://www.52im.net/thread-515-1-1.html
+http://www.52im.net/thread-513-1-1.html
+https://blog.csdn.net/dog250/article/details/53013410
+
+python
+https://www.cnblogs.com/zzhzhao/p/5269217.html
+https://www.cnblogs.com/dev-liu/p/pandas_plt_basic.html
+https://blog.csdn.net/genome_denovo/article/details/78118511
+https://baijiahao.baidu.com/s?id=1595183355817322735&wfr=spider&for=pc
+https://blog.csdn.net/wuzlun/article/details/80053277
+
+nk
+https://www.nowcoder.com/activity/oj
+https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba?tpId=13&tqId=11178&rp=1&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking&tPage=2
+http://bbs.yingjiesheng.com/forum.php?mod=forumdisplay&fid=1943&typeid=7554
+http://bbs.yingjiesheng.com/forum-62-1.html
+http://bbs.yingjiesheng.com/thread-2158731-1-1.html
+
+
+il
+http://www.sohu.com/a/219590712_129720
+https://zhuanlan.zhihu.com/chuchu
+https://zhuanlan.zhihu.com/p/27967531
+https://zhuanlan.zhihu.com/p/25328686
+https://zhuanlan.zhihu.com/p/25688750
+https://zhuanlan.zhihu.com/p/25319023
+https://zhuanlan.zhihu.com/p/25298020
+http://www.sohu.com/a/219644723_494939
+https://www.cnblogs.com/wangxiaocvpr/p/8016414.html
+https://blog.csdn.net/sysstc/article/details/76214579
+
+
+https://blog.csdn.net/sysstc/article/details/76214579	Linux常用命令大全（非常全！！！）
+https://imlogm.github.io/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/vgg-complexity/  以VGG为例，分析深度网络的计算量和参数量
+https://blog.csdn.net/u012968002/article/details/72331251 	深度神经网络-权值参数个数计算
+
+https://blog.csdn.net/weixinhum/article/details/79273480 	深度学习1---最简单的全连接神经网络
+http://www.cnblogs.com/chuxiuhong/p/5885073.html 	正则表达式入门
+https://www.cnblogs.com/fanweibin/p/5053328.html 	socket
+https://blog.csdn.net/yuehailin/article/details/68961304	白话经典算法系列之五 归并排序的实现
+https://www.cnblogs.com/yeayee/p/4952022.html	Python 一篇学会多线程
+
+
