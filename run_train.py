@@ -5,11 +5,9 @@ from simple_DQN_Prioritized_replay_Dueling import DQNPrioritizedReplay_Dueling
 # from simple_DQN_double import DoubleDQN
 # from simple_DQN_dueling import DuelingDQN
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import configparser
 import time
-
-# 单次实验比较
 
 TRAIN_EPISODE = 4000000
 TEST_EPISODE = 100000

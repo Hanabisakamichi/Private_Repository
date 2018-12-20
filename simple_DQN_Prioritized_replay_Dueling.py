@@ -10,6 +10,7 @@ gym: 0.8.0
 
 import numpy as np
 import tensorflow as tf
+from os import path
 
 np.random.seed(1)
 tf.set_random_seed(1)
@@ -117,7 +118,7 @@ class Memory(object):  # stored as ( s, a, r, s_ ) in SumTree
             v = np.random.uniform(a, b)
             idx, p, data = self.tree.get_leaf(v)
             prob = p / self.tree.total_p
-            ISWeights[i, 0] = np.power(prob/min_prob+0.0000001, -self.beta)
+            ISWeights[i, 0] = np.power(prob/(min_prob+0.0000001), -self.beta)
             b_idx[i], b_memory[i, :] = idx, data
         return b_idx, b_memory, ISWeights
 
@@ -306,3 +307,18 @@ class DQNPrioritizedReplay_Dueling:
 
         self.epsilon = self.epsilon + self.epsilon_increment if self.epsilon < self.epsilon_max else self.epsilon_max
         self.learn_step_counter += 1
+
+    def save_model(self, checkpoint=None):
+        """ Takes care of saving/checkpointing the model. """
+        if checkpoint is None:
+            model_path = path.join('./model/', 'model')
+        else:
+            model_path = path.join('./model/', 'checkpoint-{}'.format(checkpoint))
+        # save parameters to parameter server
+        saver = tf.train.Saver()
+        saver.save(self.sess, model_path)
+        print('\nModel saved to param. server at {}\n'.format(model_path))
+
+    def load_model(self, model_path):
+        saver = tf.train.Saver()
+        saver.restore(self.sess, model_path)

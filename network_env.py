@@ -3,10 +3,10 @@ import random
 import network
 
 # choose which type of network to run on, two topology 'NSFNET' or 'FATTREE'
-NETWORK_TYPE = 'B_FATTREE'
+NETWORK_TYPE = 'S_FATTREE'
 N_CANDIDATE_ROUTING_PATH = 4
 FLOW_DEMAND_MAX = 0.25
-FLOW_DENSITY = 0.15
+FLOW_DENSITY = 0.25
 
 class Environment():
     def __init__(self):
@@ -177,25 +177,44 @@ class Environment():
 
         return raw_state
 
-    def convolve(self,array):
+    def convolve5(self,array):
 
         new_array = []
         l =len(array)
-        if NETWORK_TYPE == 'S_FATTREE':
-            array = np.hstack((np.zeros(5),array,np.zeros(5)))
-            for i in range(l):
-                target = array[i]*0.2+array[i+1]*0.4+array[i+2]*0.6+array[i+3]*0.8+array[i+4]*1+array[i+5]*2+array[i+6]*1+array[i+7]*0.8+array[i+8]*0.6+array[i+9]*0.4+array[i+10]*0.2
-                new_array.append(target/8)
-        if NETWORK_TYPE == 'B_FATTREE':
-            array = np.hstack((np.zeros(10),array,np.zeros(10)))
-            for i in range(l):
-                target = 0
-                for j in range(10):
-                    target += array[i+j]*0.1*(j+1)
-                target += array[i+10]*4
-                for k in range(10):
-                    target += array[i+11+k]*0.1*(10-k)
-                new_array.append(target/15)
+        array = np.hstack((np.zeros(5),array,np.zeros(5)))
+        for i in range(l):
+            target = array[i]*0.2+array[i+1]*0.4+array[i+2]*0.6+array[i+3]*0.8+array[i+4]*1+array[i+5]*2+array[i+6]*1+array[i+7]*0.8+array[i+8]*0.6+array[i+9]*0.4+array[i+10]*0.2
+            new_array.append(target/8)
+        return new_array
+
+    def convolve10(self,array):
+
+        new_array = []
+        l =len(array)
+        array = np.hstack((np.zeros(10),array,np.zeros(10)))
+        for i in range(l):
+            target = 0
+            for j in range(10):
+                target += array[i+j]*0.1*(j+1)
+            target += array[i+10]*4
+            for k in range(10):
+                target += array[i+11+k]*0.1*(10-k)
+            new_array.append(target/15)
+        return new_array
+
+    def convolve20(self,array):
+
+        new_array = []
+        l =len(array)
+        array = np.hstack((np.zeros(20),array,np.zeros(20)))
+        for i in range(l):
+            target = 0
+            for j in range(20):
+                target += array[i+j]*0.05*(j+1)
+            target += array[i+20]*4
+            for k in range(20):
+                target += array[i+21+k]*0.05*(20-k)
+            new_array.append(target/25)
         return new_array
 
     def dec2bin(self,num):
@@ -214,8 +233,11 @@ class Environment():
     # get raw_state for input to DQN
     def get_start_input_state(self, raw_state):
 
-        s1 = self.convolve(raw_state[:self.n_flows])
-        s2 = self.convolve(raw_state[self.n_flows:-1])
+        if NETWORK_TYPE == 'B_FATTREE':
+            s1 = self.convolve20(raw_state[:self.n_flows])
+        if NETWORK_TYPE == 'S_FATTREE':
+            s1 = self.convolve5(raw_state[:self.n_flows])
+        s2 = self.convolve5(raw_state[self.n_flows:-1])
         s3 = self.dec2bin(raw_state[-1])
         s4 = raw_state[int(raw_state[-1])]
         input_state = np.hstack((s1,s2,s3,s4))
@@ -229,10 +251,11 @@ class Environment():
         if raw_state[int(raw_state[-1])-1] == 0:
             s2 = input_state[self.n_flows:self.n_flows+self.n_links]
         else:
-            s2 = self.convolve(raw_state[self.n_flows:-1])
-        s2 = self.convolve(raw_state[self.n_flows:-1])
+            s2 = self.convolve5(raw_state[self.n_flows:-1])
+
         s3 = self.dec2bin(raw_state[-1])
         s4 = raw_state[int(raw_state[-1])]
+
         input_state_ = np.hstack((s1,s2,s3,s4))
 
         return input_state_
