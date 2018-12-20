@@ -7,7 +7,7 @@ from simple_DQN_Prioritized_replay_Dueling import DQNPrioritizedReplay_Dueling
 import numpy as np
 import matplotlib.pyplot as plt
 import configparser
-
+import time
 
 # 单次实验比较
 
@@ -28,7 +28,7 @@ def train_routing():
         # initial observation
         raw_state = env.reset()
         #convolution
-        input_state = env.get_input_state(raw_state)
+        input_state = env.get_start_input_state(raw_state)
 
         while True:
             #normalize
@@ -37,18 +37,26 @@ def train_routing():
             state_normalize[env.n_flows:(env.n_flows+env.n_links)] /= 100'''
             
             # RL choose action based on observation
+            #s = time.time()
             action = RL.choose_action(input_state)
-
+            #e = time.time()
+            #print('choose_action',e-s)
             # RL take action and get next observation and reward
+            #s = time.time()
             raw_state_, reward, done = env.step(raw_state,action)
+            #e = time.time()
+            #print('step',e-s)
             '''state_normalize_ = state_[:]
             state_normalize_[:env.n_flows] /= env.max_flow_demand 
             state_normalize_[env.n_flows:(env.n_flows+env.n_links)] /= 100'''
-
-            input_state_ = env.get_input_state(raw_state_)
-
+            #s = time.time()
+            input_state_ = env.get_next_input_state(raw_state_,input_state)
+            #e = time.time()
+            #print('get_input_state',e-s)
+            #s = time.time()
             RL.store_transition(input_state, action, reward, input_state_)
-
+            #e = time.time()
+            #print('store_transition',e-s)
             # if (step > 200) and (step % 5 == 0):
                 # RL.learn()
 
@@ -58,6 +66,7 @@ def train_routing():
 
             # break while loop when end of this episode
             if done:
+                print(episode)
                 # print(reward)
                 if (episode > min_replay_history):
                     RL.learn()
@@ -400,7 +409,7 @@ if __name__ == "__main__":
     min_replay_history = cf.getfloat('dqn', 'min_replay_history')
 
     env = Environment()
-    '''
+    
     RL = DQNPrioritizedReplay_Dueling(n_actions=env.n_actions, 
                               n_features=env.n_features, 
                               learning_rate=learning_rate,
@@ -424,7 +433,7 @@ if __name__ == "__main__":
                       e_greedy_increment=e_greedy_increment,
                       output_graph=True
                       )
-    '''
+    
     
     RL = DQNPrioritizedReplay_Dueling(n_actions=env.n_actions, 
                               n_features=env.n_features, 
