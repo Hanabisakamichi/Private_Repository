@@ -26,9 +26,7 @@ def train_routing():
 
     for episode in range(TRAIN_EPISODE):
         # initial observation
-        raw_state = env.reset()
-        #convolution
-        input_state = env.get_start_input_state(raw_state)
+        raw_state,input_state = env.reset()
 
         while True:
             #normalize
@@ -66,7 +64,6 @@ def train_routing():
 
             # break while loop when end of this episode
             if done:
-                print(episode)
                 # print(reward)
                 if (episode > min_replay_history):
                     RL.learn()
@@ -358,12 +355,14 @@ def loss_throughput():
         else:
             sum_load_under_threshold += env.total_link_load[i]
     
-    throughput_rate = sum_load_under_threshold/sum(env.total_link_load)
-    throughput = sum(env.flow_demand_vector)*throughput_rate
-    packet_loss_rate = 1-sum_load_under_threshold/sum(env.total_link_load)
+    if sum(env.total_link_load) == 0:
+        return 0,0
+    else:
+        throughput_rate = sum_load_under_threshold/sum(env.total_link_load)
+        throughput = sum(env.flow_demand_vector)*throughput_rate
+        packet_loss_rate = 1-sum_load_under_threshold/sum(env.total_link_load)
     
-
-    return throughput,packet_loss_rate
+        return throughput,packet_loss_rate
 
 '''
 def show_reward(a,b,c):

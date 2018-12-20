@@ -3,7 +3,7 @@ import random
 import network
 
 # choose which type of network to run on, two topology 'NSFNET' or 'FATTREE'
-NETWORK_TYPE = 'S_FATTREE'
+NETWORK_TYPE = 'B_FATTREE'
 N_CANDIDATE_ROUTING_PATH = 4
 FLOW_DEMAND_MAX = 0.25
 FLOW_DENSITY = 0.15
@@ -222,15 +222,20 @@ class Environment():
 
         return input_state
 
-    def get_next_input_state(self, raw_state,input_state):
+    def get_next_input_state(self, raw_state, input_state):
 
         s1 = input_state[:self.n_flows]
+        
+        if raw_state[int(raw_state[-1])-1] == 0:
+            s2 = input_state[self.n_flows:self.n_flows+self.n_links]
+        else:
+            s2 = self.convolve(raw_state[self.n_flows:-1])
         s2 = self.convolve(raw_state[self.n_flows:-1])
         s3 = self.dec2bin(raw_state[-1])
         s4 = raw_state[int(raw_state[-1])]
-        input_state = np.hstack((s1,s2,s3,s4))
+        input_state_ = np.hstack((s1,s2,s3,s4))
 
-        return input_state
+        return input_state_
 
     # get reward at every step
     def get_reward(self):
@@ -265,7 +270,7 @@ class Environment():
 
         raw_state = self.get_raw_state(0)
 
-        return raw_state
+        return raw_state, self.get_start_input_state(raw_state)   #raw state and its convolution
 
     def step(self, raw_state, action):
 
